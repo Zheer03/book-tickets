@@ -122,16 +122,65 @@ class _TicketsPageState extends State<TicketsPage> {
                         ),
                       ],
                     ),
-                    Gap(AppLayout.getHeight(1)),
-                    BarcodeWidget(
-                      data: 'https://github.com/martinovovo',
-                      barcode: Barcode.code128(),
-                      drawText: false,
-                    ),
                   ],
                 ),
               ),
+              Gap(AppLayout.getHeight(1)),
+              // Barcode
+              Container(
+                padding: EdgeInsets.all(AppLayout.getHeight(20)),
+                margin:
+                    EdgeInsets.symmetric(horizontal: AppLayout.getHeight(8)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.vertical(
+                      bottom: Radius.circular(AppLayout.getHeight(20))),
+                ),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(AppLayout.getHeight(15)),
+                  child: BarcodeWidget(
+                    data: 'https://github.com/Zheer03/book-tickets',
+                    barcode: Barcode.code128(),
+                    drawText: false,
+                    color: Styles.textColor,
+                    width: double.infinity,
+                    height: 70,
+                  ),
+                ),
+              ),
+              Gap(AppLayout.getHeight(20)),
+              const TicketView(index: 0),
             ],
+          ),
+          Positioned(
+            left: AppLayout.getHeight(18),
+            top: AppLayout.getHeight(290),
+            child: Container(
+              padding: EdgeInsets.all(AppLayout.getHeight(2.5)),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              child: CircleAvatar(
+                maxRadius: 5,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
+          ),
+          Positioned(
+            right: AppLayout.getHeight(18),
+            top: AppLayout.getHeight(290),
+            child: Container(
+              padding: EdgeInsets.all(AppLayout.getHeight(2.5)),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              child: CircleAvatar(
+                maxRadius: 5,
+                backgroundColor: Styles.textColor,
+              ),
+            ),
           ),
         ],
       ),
